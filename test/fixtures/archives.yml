@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  creationdate: 2019-03-09
+  location: MyString
+  tamaño: MyString
+  string: MyString
+
+two:
+  name: MyString
+  type: 
+  creationdate: 2019-03-09
+  location: MyString
+  tamaño: MyString
+  string: MyString
