@@ -15,7 +15,6 @@ class ArchivesController < ApplicationController
   # GET /archives/new
   def new
     @archive = Archive.new
-    @categories = Category.all
   end
 
   # GET /archives/1/edit
@@ -26,8 +25,7 @@ class ArchivesController < ApplicationController
   # POST /archives.json
   def create
     @archive = Archive.new(archive_params)
-    @archive.categories = article_params[:categories]
-
+    
     respond_to do |format|
       if @archive.save
         format.html { redirect_to @archive, notice: 'Archive was successfully created.' }

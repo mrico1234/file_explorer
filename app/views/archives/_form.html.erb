@@ -40,15 +40,13 @@
     <%= form.label :string %>
     <%= form.text_field :string %>
   </div>
-  <!-- -------------------------------------------------------------------------------------------------- -->
+
+
   <div class="field">
-    <label>Categorias</label>
-    <% @categories.each do |category|%>      
-      <div class="field">
-        <%= check_box_tag "categories[]", category.id %> <%= category.name %>
-      </div>
+    
   </div>
-  <!-- -------------------------------------------------------------------------------------------------- -->
+
+  
   <div class="actions">
     <%= form.submit %>
   </div>
