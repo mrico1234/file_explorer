@@ -10,14 +10,14 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @archives = Archive.all
+    #@archives = Archive.all
+    @archive = Archive.new
   end
 
   # GET /categories/new
   def new
     @category = Category.new
   end
-
   # GET /categories/1/edit
   def edit
   end

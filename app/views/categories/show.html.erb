@@ -1,18 +1,21 @@
 <p id="notice"><%= notice %></p>
 
+<div>
+	<h3>Archivos</h3>
+		<%= render 'archives/form', archive: [@category,@archive] %>
+		<ul>
+			<% @category.archives.each do |archive| %>
+			<li>
+				<%= archive.name %>	- <%= archive.typ %>
+			</li>
+			<%end%>
+		</ul>
+</div>
 
 
+	
 
-	<div class="field">
-    
-    <% @archives.each do |archive|%>   
-      <% if @category.id == archive.category_id %>
-      	<%= archive.name %>		
-      <% end %>
-    <% end %>  
-  </div>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
+<!-- <%= link_to 'Edit', edit_category_path(@category) %> |-->
 <%= link_to 'Back', categories_path %>
 
 

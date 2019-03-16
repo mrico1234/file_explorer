@@ -1,49 +1,33 @@
 <%= form_with(model: archive, local: true) do |form| %>
-  <% if archive.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(archive.errors.count, "error") %> prohibited this archive from being saved:</h2>
-
-      <ul>
-      <% archive.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :Nombre %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :typ %>
+    <%= form.label :Tipo %>
     <%= form.text_field :typ %>
   </div>
-
+  
   <div class="field">
-    <%= form.label :creationdate %>
+    <%= form.label :Fecha_creación %>
     <%= form.date_select :creationdate %>
   </div>
 
   <div class="field">
-    <%= form.label :location %>
+    <%= form.label :Ubicación %>
     <%= form.text_field :location %>
   </div>
 
   <div class="field">
-    <%= form.label :tamaño %>
+    <%= form.label :Tamaño %>
     <%= form.text_field :tamaño %>
   </div>
 
   <div class="field">
-    <%= form.label :string %>
+    <%= form.label :string? %>
     <%= form.text_field :string %>
-  </div>
-
-
-  <div class="field">
-    
   </div>
 
   
