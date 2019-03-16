@@ -5,13 +5,18 @@
   <%= @category.name %>
 </p>
 
-<br>
-<br>
-
 <p>
   <strong>String:</strong>
   <%= @category.string %>
 </p>
+<div class="actions">
+	<%= link_to "Crear", new_category_path(:parent_id => @category) %>
+</div>
+
+<p>
+	<%= @category.subtree.arrange(:order => :created_at) %>
+</p>
+
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
