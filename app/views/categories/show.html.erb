@@ -10,7 +10,7 @@
   <%= @category.string %>
 </p>
 <div class="actions">
-	<%= link_to "Crear", new_category_path(:parent_id => @category) %>
+	<%= link_to "Crear nueva carpeta", new_category_path(:parent_id => @category) %>
 </div>
 
 <p>
@@ -18,5 +18,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Editar', edit_category_path(@category) %> |
+<%= link_to 'Regresar', categories_path %>
