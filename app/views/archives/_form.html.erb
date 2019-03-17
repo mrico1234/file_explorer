@@ -11,11 +11,6 @@
   </div>
   
   <div class="field">
-    <%= form.label :Fecha_creación %>
-    <%= form.date_select :creationdate %>
-  </div>
-
-  <div class="field">
     <%= form.label :Ubicación %>
     <%= form.text_field :location %>
   </div>
@@ -25,13 +20,8 @@
     <%= form.text_field :tamaño %>
   </div>
 
-  <div class="field">
-    <%= form.label :string? %>
-    <%= form.text_field :string %>
-  </div>
-
   
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Crear archivo" %>
   </div>
 <% end %>

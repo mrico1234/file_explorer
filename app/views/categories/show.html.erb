@@ -2,11 +2,12 @@
 
 <div>
 	<h3>Archivos</h3>
-		<%= render 'archives/form', archive: [@category,@archive] %>
+		<%= render "category" %>
+		
 		<ul>
 			<% @category.archives.each do |archive| %>
 			<li>
-				<%= archive.name %>	- <%= archive.typ %>
+				<%= archive.name %>	- <%= archive.typ %> - <%= archive.category.id %>
 			</li>
 			<%end%>
 		</ul>
