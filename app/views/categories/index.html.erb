@@ -14,11 +14,16 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.name %></td>
-        <!-- <td><%= category.string %></td> -->
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          
+          <%#= link_to( content_tag( :i, nil, class: 'fa fa-trash-o' ), method: :delete, data: { confirm: 'Are you sure?' } ) %>
+          <%= link_to icon('fas', 'folder', class: "fa-4x"), category %>
+          <br>  
+          <%= category.name %>
+        </td>
+        <td><%#= link_to 'Show', category %></td>
+        <td><%= link_to icon('fas', 'edit', class: "fa-2x"), edit_category_path(category) %></td>
+        <td><%= link_to icon('fas', 'trash-alt', class: "fa-2x"), category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +31,6 @@
 
 <br>
 
-<%= link_to 'New Category', new_category_path %>
+<div>
+  <%= link_to   icon('fas', 'plus', class: "fa-2x"), new_category_path %>
+</div>
