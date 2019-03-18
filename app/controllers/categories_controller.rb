@@ -12,6 +12,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show  
     @categories = Category.all
+    @archive = Archive.new
   end
 
   # GET /categories/new
@@ -19,7 +20,6 @@ class CategoriesController < ApplicationController
     #category = Category.new
     @category = Category.new(:parent_id => params[:parent_id])
   end
-
   # GET /categories/1/edit
   def edit
   end

@@ -1,5 +1,6 @@
 class ArchivesController < ApplicationController
   before_action :set_archive, only: [:show, :edit, :update, :destroy]
+  before_action :set_category
 
   # GET /archives
   # GET /archives.json
@@ -25,10 +26,11 @@ class ArchivesController < ApplicationController
   # POST /archives.json
   def create
     @archive = Archive.new(archive_params)
-
+    @archive.category = @category
+    
     respond_to do |format|
       if @archive.save
-        format.html { redirect_to @archive, notice: 'Archive was successfully created.' }
+        format.html { redirect_to @archive.category, notice: 'Archive was successfully created.' }
         format.json { render :show, status: :created, location: @archive }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class ArchivesController < ApplicationController
   def update
     respond_to do |format|
       if @archive.update(archive_params)
-        format.html { redirect_to @archive, notice: 'Archive was successfully updated.' }
+        format.html { redirect_to @archive.category, notice: 'Archive was successfully updated.' }
         format.json { render :show, status: :ok, location: @archive }
       else
         format.html { render :edit }
@@ -62,6 +64,10 @@ class ArchivesController < ApplicationController
   end
 
   private
+    def set_category
+      @category = Category.find(params[:category_id])
+    end 
+
     # Use callbacks to share common setup or constraints between actions.
     def set_archive
       @archive = Archive.find(params[:id])
@@ -69,6 +75,6 @@ class ArchivesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def archive_params
-      params.require(:archive).permit(:name, :typ, :creationdate, :location, :tamaño, :string)
+      params.require(:archive).permit(:name, :typ, :creationdate, :location, :tamaño, :string, :categories)
     end
 end

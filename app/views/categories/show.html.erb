@@ -13,6 +13,21 @@
 <div class="actions">
 	<%= link_to "Crear nueva carpeta", new_category_path(:parent_id => @category) %>
 </div>
+<p>---------------------------------------------------------------------------</p>
+
+<div>
+	<h3>Archivos</h3>
+		<%= render "archive" %>
+		
+		<ul>
+			<% @category.archives.each do |archive| %>
+			<li>
+				<%= archive.name %>	- <%= archive.typ %> - <%= archive.category.id %>
+			</li>
+			<%end%>
+		</ul>
+</div>
+
 
 
 <%= link_to 'Editar', edit_category_path(@category) %> |
