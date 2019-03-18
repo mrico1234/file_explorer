@@ -1,21 +1,18 @@
 <p id="notice"><%= notice %></p>
+<h1>Carpetas</h1>
+
+<br>
 
 <p>
-  <strong>Nombre:</strong>
-  <%= @category.name %>
+	<%= nested_categories @category.children.arrange(:order => :created_at) %>
 </p>
 
-<p>
-  <strong>String:</strong>
-  <%= @category.string %>
-</p>
+<br>
+<br>
+
 <div class="actions">
 	<%= link_to "Crear nueva carpeta", new_category_path(:parent_id => @category) %>
 </div>
-
-<p>
-	<%= @category.subtree.arrange(:order => :created_at) %>
-</p>
 
 
 <%= link_to 'Editar', edit_category_path(@category) %> |
