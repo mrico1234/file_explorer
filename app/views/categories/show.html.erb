@@ -7,28 +7,46 @@
 	<%= nested_categories @category.children.arrange(:order => :created_at) %>
 </p>
 
-<br>
-<br>
+<br><br>
 
 <div class="actions">
-	<%= link_to "Crear nueva carpeta", new_category_path(:parent_id => @category) %>
+	<%#= link_to "Crear nueva carpeta", new_category_path(:parent_id => @category) %>
+	<%= link_to icon('fas', 'plus', class: "fa-2x"), new_category_path(:parent_id => @category)%>
 </div>
 <p>---------------------------------------------------------------------------</p>
 
 <div>
 	<h3>Archivos</h3>
-		<%= render "archive" %>
-		
-		<ul>
+	<%= render "archive" %>
+	<br><br>
+	<table>
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Tipo</th>
+				<th>Ubicación</th>
+				<th>Tamaño</th>
+				<th>fecha creación</th>
+			</tr>	
+		</thead>
+
+		<tbody>
 			<% @category.archives.each do |archive| %>
-			<li>
-				<%= archive.name %>	- <%= archive.typ %> - <%= archive.category.id %>
-			</li>
-			<%end%>
-		</ul>
+			<tr>
+				<td>
+					<%= icon('fas', 'file', class: "fa-1x") %>				
+					<%= archive.name %>
+				</td>
+				<td>|<%= archive.typ %> </td>
+				<td>|<%= archive.location %> </td>
+				<td>|<%= archive.tamaño %> </td>
+				<td><%= archive.created_at.strftime("%B %d, %Y") %> </td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
 </div>
 
-
-
-<%= link_to 'Editar', edit_category_path(@category) %> |
-<%= link_to 'Regresar', categories_path %>
+<br><br>
+<%= link_to icon('fas', 'edit', class: "fa-2x"), edit_category_path(@category) %>    |    
+<%= link_to icon('fas', 'undo', class: "fa-2x"), categories_path %>

@@ -1,7 +1,11 @@
-<tr>
-  <strong><td><%= category.name %></td></strong>
-  <td><%= link_to 'Mostrar', category %></td>
-  <td><%= link_to 'Editar', edit_category_path(category) %></td>
-  <td><%= link_to 'Destruir', category, method: :delete, data: { confirm: '¿Estas seguro?' } %></td>
-</tr>
+<table>
+	<tr>
+		<td>
+			<%= link_to icon('fas', 'folder', class: "fa-1x"), category %>
+			<strong><%= link_to category.name, category %></strong>	
+		</td>
+		<td><%= link_to icon('fas', 'edit', class: "fa-2x"), edit_category_path(category) %></td>
+		<td><%= link_to icon('fas', 'trash-alt', class: "fa-2x"), category, method: :delete, data: { confirm: '¿Estas seguro?' } %></td>
+	</tr>
+</table>
 
