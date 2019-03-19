@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2019_03_13_053255) do
 
-ActiveRecord::Schema.define(version: 2019_03_10_185014) do
-
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "archives", force: :cascade do |t|
     t.string "name"
@@ -23,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_03_10_185014) do
     t.string "string"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category_id"
+    t.bigint "category_id"
     t.index ["category_id"], name: "index_archives_on_category_id"
   end
 
@@ -37,12 +38,15 @@ ActiveRecord::Schema.define(version: 2019_03_10_185014) do
   end
 
   create_table "has_folders", force: :cascade do |t|
-    t.integer "category_id"
-    t.integer "archive_id"
+    t.bigint "category_id"
+    t.bigint "archive_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["archive_id"], name: "index_has_folders_on_archive_id"
     t.index ["category_id"], name: "index_has_folders_on_category_id"
   end
 
+  add_foreign_key "archives", "categories"
+  add_foreign_key "has_folders", "archives"
+  add_foreign_key "has_folders", "categories"
 end
