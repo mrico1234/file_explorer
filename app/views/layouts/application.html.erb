@@ -9,8 +9,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
-  <style>A {text-decoration: none;} </style>
+  <style> {text-decoration: none;} </style>
   <body>
-    <%= yield %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
   </body>
 </html>
