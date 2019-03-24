@@ -1,12 +1,9 @@
-<div class="container">
-	<div class="text-left col-4">
-		<h1>Nueva carpeta</h1>
-		<br>
-		<%#= render @category.parent if @category.parent %>
+<div class="text-left col-4">
+	<h1>Nueva carpeta</h1>
+	<br>
+	<%#= render @category.parent if @category.parent %>
 
-		<%= render 'form', category: @category %>
+	<%= render 'form', category: @category %>
 
-		<%= link_to 'Regresar', categories_path %>		
-	</div>			
-
-</div>
+	<%= link_to 'Regresar', categories_path %>		
+</div>			

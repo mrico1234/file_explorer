@@ -1,16 +1,10 @@
 <p id="notice"><%= notice %></p>
-<h1>Carpetas</h1>
+<h1>Carpetas</h1> <br>
 
-<br>
-
-<p>
-	<%= nested_categories @category.children.arrange(:order => :created_at) %>
-</p>
-
+<p><%= nested_categories @category.children.arrange(:order => :created_at) %></p>
 <br><br>
 
 <div class="actions">
-	<%#= link_to "Crear nueva carpeta", new_category_path(:parent_id => @category) %>
 	<%= link_to icon('fas', 'plus', class: "fa-2x"), new_category_path(:parent_id => @category)%>
 </div>
 <p>---------------------------------------------------------------------------</p>
@@ -19,7 +13,7 @@
 	<h3>Archivos</h3>
 	<%= render "archive" %>
 	<br><br>
-	<table>
+	<table class="table table-borderless">
 		<thead>
 			<tr>
 				<th>Nombre</th>
@@ -37,9 +31,9 @@
 					<%= icon('fas', 'file', class: "fa-1x") %>				
 					<%= archive.name %>
 				</td>
-				<td>|<%= archive.typ %> </td>
-				<td>|<%= archive.category.path_ids %> </td>
-				<td>|<%= archive.tamaño %> </td>
+				<td><%= archive.typ %> </td>
+				<td><%= archive.category.path_ids %> </td>
+				<td><%= archive.tamaño %> </td>
 				<td><%= archive.created_at.strftime("%B %d, %Y") %> </td>
 			</tr>
 			<% end %>

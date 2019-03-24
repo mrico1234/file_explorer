@@ -1,23 +1,26 @@
-<%= form_with(model: archive, local: true) do |form| %>
+<div>
+  <%= form_with(model: archive, local: true) do |form| %>
 
-  <div class="field">
-    <%= form.label :Nombre %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="field">
+      <%= form.label :Nombre %>
+      <%= form.text_field :name %>
+    </div>
 
-  <div class="field">
-    <%= form.label :Tipo %>
-    <%#= form.text_field :typ %>
-    <%= form.select :typ, options_for_select([["jpeg", "jpeg"], ["doc", "doc"], ["xls", "xls"],["png", "png"],["txt", "txt"]]) %>
-  </div>
+    <div class="field">
+      <%= form.label :Tipo %>
+      <%#= form.text_field :typ %>
+      <%= form.select :typ, options_for_select([["jpeg", "jpeg"], ["doc", "doc"], ["xls", "xls"],["png", "png"],["txt", "txt"]]) %>
+    </div>
 
-  <div class="field">
-    <%= form.label :Tamaño %>
-    <%= form.text_field :tamaño %>
-  </div>
+    <div class="field">
+      <%= form.label :Tamaño %>
+      <%= form.text_field :tamaño %>
+    </div>
 
-  
-  <div class="actions">
-    <%= form.submit "Crear archivo" %>
-  </div>
-<% end %>
+    
+    <div class="actions">
+      <%= form.submit "Crear archivo" %>
+    </div>
+  <% end %>
+
+</div>
