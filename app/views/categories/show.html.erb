@@ -13,32 +13,34 @@
 	<h3>Archivos</h3>
 	<%= render "archive" %>
 	<br><br>
-	<table class="table table-borderless">
-		<thead>
-			<tr>
-				<th>Nombre</th>
-				<th>Tipo</th>
-				<th>Ubicación</th>
-				<th>Tamaño</th>
-				<th>fecha creación</th>
-			</tr>	
-		</thead>
+	<% if @category.archives %>
+		<table class="table table-borderless">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Tipo</th>
+					<th>Ubicación</th>
+					<th>Tamaño</th>
+					<th>fecha creación</th>
+				</tr>	
+			</thead>
 
-		<tbody>
-			<% @category.archives.each do |archive| %>
-			<tr>
-				<td>
-					<%= icon('fas', 'file', class: "fa-1x") %>				
-					<%= archive.name %>
-				</td>
-				<td><%= archive.typ %> </td>
-				<td><%= archive.category.path_ids %> </td>
-				<td><%= archive.tamaño %> </td>
-				<td><%= archive.created_at.strftime("%B %d, %Y") %> </td>
-			</tr>
-			<% end %>
-		</tbody>
-	</table>
+			<tbody>
+				<% @category.archives.each do |archive| %>
+				<tr>
+					<td>
+						<%= icon('fas', 'file', class: "fa-1x") %>				
+						<%= archive.name %>
+					</td>
+					<td><%= archive.typ %> </td>
+					<td><%= archive.category.path_ids %> </td>
+					<td><%= archive.tamaño %> </td>
+					<td><%= archive.created_at.strftime("%B %d, %Y") %> </td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% end %>
 </div>
 
 <!--<br><br>-->
