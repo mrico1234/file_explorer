@@ -1,19 +1,18 @@
-<div>
+<div class="container-fluid">
   <%= form_with(model: archive, local: true) do |form| %>
 
     <div class="form-group row">
-      <%= form.label :Nombre, class:"col-sm-1 col-form-label-sm" %>
-      <%= form.text_field :name, class:"col-sm-3 form-control-sm" %>
+      <%#= form.label :Nombre, class:"col-sm-1 col-form-label-sm" %>
+      <%= form.text_field :name, class:"col-sm-2 form-control-sm", placeholder:"Nombre" %>
     </div>
 
     <div class="form-group row">
-      <%= form.label :Tipo, class:"inputState col-sm-1 col-form-label-sm" %>
+      <%#= form.label :Tipo, class:"inputState col-sm-1 col-form-label-sm" %>
       <%= form.select :typ, options_for_select([["jpeg", "jpeg"], ["doc", "doc"], ["xls", "xls"],["png", "png"],["txt", "txt"]]), id:"inputState", class:"form-control-sm" %>
     </div>
 
     <div class="form-group row">
-      <%= form.label :Tamaño, class:"col-sm-1 col-form-label-sm" %>
-      <%= form.text_field :tamaño, class:"col-sm-3 form-control-sm" %>
+      <%= form.text_field :tamaño, class:"col-sm-1 form-control-sm", placeholder:"Tamaño" %>
     </div>
 
     

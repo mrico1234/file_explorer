@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1>Carpetas</h1> <br>
+<h3>Estas en: <strong><%= @category.name %></strong></h3> <br>
 
 <p><%= nested_categories @category.children.arrange(:order => :created_at) %></p>
 <br><br>
@@ -10,10 +10,10 @@
 <p>---------------------------------------------------------------------------</p>
 
 <div>
-	<h3>Archivos</h3>
+	<h4><strong>Archivos</strong></h4>
 	<%= render "archive" %>
 	<br><br>
-	<% if @category.archives %>
+	<% if !@category.archives.blank? %>
 		<table class="table table-borderless">
 			<thead>
 				<tr>
@@ -43,6 +43,5 @@
 	<% end %>
 </div>
 
-<!--<br><br>-->
 <%#= link_to icon('fas', 'edit', class: "fa-2x"), edit_category_path(@category) %>       
 <%= link_to icon('fas', 'undo', class: "fa-2x"), categories_path %>
