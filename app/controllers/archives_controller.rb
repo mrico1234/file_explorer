@@ -58,7 +58,7 @@ class ArchivesController < ApplicationController
   def destroy
     @archive.destroy
     respond_to do |format|
-      format.html { redirect_to archives_url, notice: 'Archive was successfully destroyed.' }
+      format.html { redirect_to @archive.category, notice: 'Archive was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

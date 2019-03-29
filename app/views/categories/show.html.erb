@@ -36,6 +36,8 @@
 					<td><%= archive.category.path_ids %> </td>
 					<td><%= archive.tamaño %> </td>
 					<td><%= archive.created_at.strftime("%B %d, %Y") %> </td>
+					<td><%= link_to icon('fas', 'edit', class: "fa-2x"), edit_category_archive_path(@category, archive) %></td>
+					<td><%= link_to icon('fas', 'trash-alt', class: "fa-2x"), [@category, archive], :method  => :delete, data: { confirm: '¿Estas seguro?' } %></td>
 				</tr>
 				<% end %>
 			</tbody>
