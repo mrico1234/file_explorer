@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%#= notice %></p>
 
 <h1>Inicio</h1>
 <br>
@@ -15,7 +15,7 @@
       <% if category.root? %>
         <tr>
           <td>
-            <%= link_to icon('fas', 'folder', class: "fa-3x", style:"color: gray;"), category %>
+            <%= link_to icon('fas', 'folder', class: "fa-3x gray" ), category %>
             <br>
             <%= category.name %>    
           </td>

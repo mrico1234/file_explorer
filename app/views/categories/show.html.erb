@@ -6,14 +6,12 @@
   </ol>
 </nav>
 
-<ul>
- 	<li> <%= nested_categories @category.children.arrange(:order => :created_at) %></li>
- </ul>
+<%= nested_categories @category.children.arrange(:order => :created_at) %>
 
-<br><br>
+<br>
 
 <div class="actions">
-	<%= link_to icon('fas', 'plus', class: "fa-2x"), new_category_path(:parent_id => @category)%>
+	<%= link_to icon('fas', 'plus', class: "fa-2x col-4 offset-md-6"), new_category_path(:parent_id => @category)%>
 </div>
 
 <div class="dropdown-divider"></div>
