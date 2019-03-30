@@ -16,6 +16,7 @@ class ArchivesController < ApplicationController
   # GET /archives/new
   def new
     @archive = Archive.new
+    #@archive = @category.archives.build
   end
 
   # GET /archives/1/edit

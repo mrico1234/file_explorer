@@ -1,13 +1,23 @@
 <p id="notice"><%= notice %></p>
-<h3>Estas en: <strong><%= @category.name %></strong></h3> <br>
-
-<p><%= nested_categories @category.children.arrange(:order => :created_at) %></p>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Estas en: <strong><%= @category.name %></strong></li>
+  </ol>
+</nav>
+<% if !@category.children.blank? %>
+	<p><%= nested_categories @category.children.arrange(:order => :created_at) %></p>
+<% else %>
+	<p>No hay carpetas</p>
+<% end %>
 <br><br>
 
 <div class="actions">
 	<%= link_to icon('fas', 'plus', class: "fa-2x"), new_category_path(:parent_id => @category)%>
 </div>
-<p>---------------------------------------------------------------------------</p>
+
+<div class="dropdown-divider"></div>
+<div class="dropdown-divider"></div>
+
 
 <div>
 	<h4><strong>Archivos</strong></h4>
@@ -42,8 +52,13 @@
 				<% end %>
 			</tbody>
 		</table>
+	<% else %>
+		<p>No hay archivos</p>
 	<% end %>
+	<%#= link_to  "Crear archivo", new_category_archive_path %>
 </div>
 
 <%#= link_to icon('fas', 'edit', class: "fa-2x"), edit_category_path(@category) %>       
 <%= link_to icon('fas', 'undo', class: "fa-2x"), categories_path %>
+
+<%#= link_to   icon('fas', 'plus', class: "fa-2x"), new_category_path %>

@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show  
     @categories = Category.all
-    @archive = Archive.new
+    @archive = Archive.new #Permite habilitar el hacer render del form de archive en la vista show
   end
 
   # GET /categories/new
@@ -68,7 +68,6 @@ class CategoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = Category.find(params[:id])
-      #@archive = Archive.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

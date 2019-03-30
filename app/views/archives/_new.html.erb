@@ -1,5 +1,7 @@
 <h1>Nuevo archivo</h1>
 
-<%= render 'form', archive: @archive %>
+<%#= render 'form', archive: @archive %>
+<%= render 'form', archive: [@category, @archive] %>
 
-<%= link_to 'Back', archives_path %>
+<%#= link_to 'Regresar', archives_path %>
+<%= link_to 'Regresar', categories_path %>
