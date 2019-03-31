@@ -47,8 +47,7 @@
 						Root
 						<strong>/</strong>
 						<% @category.path.each do |ruta| %>
-							<%=ruta.name%>
-							<strong>/</strong>
+							<%=ruta.name%><strong> /</strong>
 						<% end %>
 					</td>
 					<td><%= archive.tamaño %> </td>

@@ -20,5 +20,13 @@
   <div class="actions">
     <%= form.submit "Crear", class:"btn btn-primary mb-2" %>
   </div>
+  <div>
+    <%= link_to 'Mostrar', @category %> |
+    <% if @category.parent.blank? %>
+      <%= link_to 'Regresar', categories_path %>
+    <% else %>
+      <%= link_to 'Regresar', category_path(@category.parent) %>
+    <% end %>
+  </div>
 <% end %>
 
