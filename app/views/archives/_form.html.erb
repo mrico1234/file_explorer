@@ -1,18 +1,31 @@
 <div class="container-fluid">
   <%= form_with(model: archive, local: true) do |form| %>
+    <div>
+      <% if @archive.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@archive.errors.count, "error") %> prohibido que esta carpeta se guarde:</h2>
 
+        <ul>
+        <% @archive.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    </div>
     <div class="form-group row">
       <%#= form.label :Nombre, class:"col-sm-1 col-form-label-sm" %>
-      <%= form.text_field :name, class:"col-sm-2 form-control-sm", placeholder:"Nombre" %>
+      <%= form.text_field :name, class:"form-control-sm", placeholder:"Nombre" %>
     </div>
 
     <div class="form-group row">
       <%#= form.label :Tipo, class:"inputState col-sm-1 col-form-label-sm" %>
-      <%= form.select :typ, options_for_select([["jpeg", "jpeg"], ["doc", "doc"], ["xls", "xls"],["png", "png"],["txt", "txt"]]), id:"inputState", class:"form-control-sm" %>
+      <%= form.select :typ, options_for_select([["", ""], ["jpeg", "jpeg"], ["doc", "doc"], ["xls", "xls"],["png", "png"],["txt", "txt"]]), id:"inputState", class:"form-control-sm" %>
     </div>
 
     <div class="form-group row">
-      <%= form.text_field :tamaño, class:"col-sm-1 form-control-sm", placeholder:"Tamaño" %>
+      <%= form.text_field :tamaño, class:"form-control-sm", placeholder:"Tamaño" %>
     </div>
 
     

@@ -1,7 +1,7 @@
 <%= form_with(model: category, local: true) do |form| %>
   <% if category.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this folder from being saved:</h2>
+      <h2><%= pluralize(category.errors.count, "error") %> prohibido que esta carpeta se guarde:</h2>
 
       <ul>
       <% category.errors.full_messages.each do |message| %>

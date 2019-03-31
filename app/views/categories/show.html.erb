@@ -1,10 +1,11 @@
 <p id="notice"><%#= notice %></p>
 
-
 <% if !@category.children.blank? %>
 	<p><%= nested_categories @category.children.arrange(:order => :created_at) %></p>
 <% else %>
-	<p>No hay carpetas</p>
+	<div class="alert alert-danger col-4" role="alert">
+		No hay carpetas
+	</div>
 <% end %>
 
 <br>
@@ -18,9 +19,10 @@
 
 <div>
 	<h4><strong>Archivos</strong></h4>
-	<%#= render "archive" %>
 	<br>
 	<% if !@category.archives.blank? %>
+	<%#= render "archive" %>
+	<br>
 		<table class="table table-borderless">
 			<thead>
 				<tr>
@@ -47,12 +49,14 @@
 					<td><%= link_to icon('fas', 'trash-alt', class: "fa-2x"), [@category, archive], :method  => :delete, data: { confirm: '¿Estas seguro?' } %></td>
 				</tr>
 				<% end %>
-				<%= link_to  "Crear archivo", new_category_archive_path(@category) %>
 			</tbody>
 		</table>
 	<% else %>
-		<p>No hay archivos</p>
+		<div class="alert alert-danger col-4" role="alert">
+		  No hay archivos
+		</div>
 	<% end %>
+	<%= link_to  "Crear archivo", new_category_archive_path(@category) %>
 </div>
 
 <%#= link_to icon('fas', 'edit', class: "fa-2x"), edit_category_path(@category) %>       
