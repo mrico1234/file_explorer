@@ -3,6 +3,6 @@ class Category < ApplicationRecord
 	has_many :archives, dependent: :destroy
 
 	validates :name, presence:true, length: { minimum: 2}
-	#validates :name, format: { with: /\A[0-9a-zA-Z]+\z/, message: "Solo se permiten letras y numeros" }
-  #validates :bio, length: { maximum: 500 }
+	validates :name, format: { with: /\A[A-Za-z0-9\s]+\z/, message: "Los signos o caracteres especiales no estan permitidos" }
+
 end

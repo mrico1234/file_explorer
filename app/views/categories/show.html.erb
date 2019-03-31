@@ -22,7 +22,6 @@
 	<br>
 	<% if !@category.archives.blank? %>
 	<%#= render "archive" %>
-	<br>
 		<table class="table table-borderless">
 			<thead>
 				<tr>
@@ -36,10 +35,9 @@
 
 			<tbody>
 				<% @category.archives.each do |archive| %>
-					
 				<tr>
 					<td>
-						<%= icon('fas', 'file', class: "fa-1x") %>				
+						<%= render 'archive', archive: archive %>
 						<%= archive.name %>
 					</td>
 					<td><%= archive.typ %> </td>

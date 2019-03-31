@@ -1,2 +1,12 @@
-<%= render 'archives/form', archive: [@category,@archive] %>
-<%#= render 'archives/new', archive: [@category, @archive] %>
+<% case archive.typ %>
+  <% when 'doc' %>
+  	<i class="fas fa-file-word"></i>		
+  <% when 'jpeg' %>
+   <i class="fas fa-file-image"></i>		
+  <% when 'xls' %>
+  	<i class="fas fa-calculator"></i>		
+  <% when 'png' %>
+  	<i class="fas fa-images"></i>		
+  <% when 'txt' %>
+  	<i class="fas fa-font"></i>		 
+<% end %>
