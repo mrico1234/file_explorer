@@ -36,13 +36,21 @@
 
 			<tbody>
 				<% @category.archives.each do |archive| %>
+					
 				<tr>
 					<td>
 						<%= icon('fas', 'file', class: "fa-1x") %>				
 						<%= archive.name %>
 					</td>
 					<td><%= archive.typ %> </td>
-					<td><%= archive.category.path_ids %> </td>
+					<td>
+						Root
+						<strong>/</strong>
+						<% @category.path.each do |ruta| %>
+							<%=ruta.name%>
+							<strong>/</strong>
+						<% end %>
+					</td>
 					<td><%= archive.tamaño %> </td>
 					<td><%= archive.created_at.strftime("%B %d, %Y") %> </td>
 					<td><%= link_to icon('fas', 'edit', class: "fa-2x"), edit_category_archive_path(@category, archive) %></td>
