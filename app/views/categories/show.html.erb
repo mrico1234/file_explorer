@@ -1,17 +1,16 @@
 <p id="notice"><%#= notice %></p>
 
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">Estas en: <strong><%= @category.name %></strong></li>
-  </ol>
-</nav>
 
-<%= nested_categories @category.children.arrange(:order => :created_at) %>
+<% if !@category.children.blank? %>
+	<p><%= nested_categories @category.children.arrange(:order => :created_at) %></p>
+<% else %>
+	<p>No hay carpetas</p>
+<% end %>
 
 <br>
 
-<div class="actions">
-	<%= link_to icon('fas', 'plus', class: "fa-2x col-4 offset-md-6"), new_category_path(:parent_id => @category)%>
+<div class="actions col-4 offset-md-6">
+	<%= link_to icon('fas', 'plus', class: "fa-2x"), new_category_path(:parent_id => @category)%>
 </div>
 
 <div class="dropdown-divider"></div>
@@ -57,6 +56,6 @@
 </div>
 
 <%#= link_to icon('fas', 'edit', class: "fa-2x"), edit_category_path(@category) %>       
-<%= link_to icon('fas', 'undo', class: "fa-2x"), categories_path %>
+<%#= link_to icon('fas', 'undo', class: "fa-2x"), categories_path %>
 
 <%#= link_to   icon('fas', 'plus', class: "fa-2x"), new_category_path %>

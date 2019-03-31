@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb "Root", :categories_path
 
   # GET /categories
   # GET /categories.json
@@ -12,7 +13,12 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show  
     @categories = Category.all
-    @archive = Archive.new #Permite habilitar el hacer render del form de archive en la vista show
+    if @category.parent.blank? #true-Si el campo es nulo, haga:
+      add_breadcrumb "#{@category.name}", category_path
+    else #False-Si no es nulo, haga:
+      add_breadcrumb "#{@category.parent.name}", category_path(@category.parent) 
+      add_breadcrumb "#{@category.name}", category_path
+    end
   end
 
   # GET /categories/new
