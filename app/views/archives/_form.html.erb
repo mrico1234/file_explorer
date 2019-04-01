@@ -2,18 +2,18 @@
   <%= form_with(model: archive, local: true) do |form| %>
     <div>
       <% if @archive.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@archive.errors.count, "error") %> prohibido que esta carpeta se guarde:</h2>
+        <div id="error_explanation">
+          <h2><%= pluralize(@archive.errors.count, "error") %> prohibido que esta carpeta se guarde:</h2>
 
-        <ul>
-        <% @archive.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
+          <ul>
+          <% @archive.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
     </div>
+
     <br>
     <% if !@archive.id.blank? %>
       <div class="form-group row">
