@@ -10,7 +10,17 @@
       </ul>
     </div>
   <% end %>
-  <%= form.hidden_field :parent_id %>
+  <%#= form.hidden_field :parent_id %>
+  <%#= form.text_field :parent_id %>
+
+  
+  <% if params[:parent_id].blank? %>
+    <br>
+    <div class="form-group row">
+      <label>Change location: </label>
+      <%= form.select :parent_id, options_from_collection_for_select(Category.all, :id, :name, @category_id) %>
+    </div>
+  <% end %>
 
   <div class="form-group">
     <%#= form.label :'Nombre:' %>
