@@ -16,11 +16,11 @@ class ArchivesController < ApplicationController
   # GET /archives/new
   def new
     @archive = Archive.new
-    #@archive = @category.archives.build
   end
 
   # GET /archives/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /archives
@@ -76,6 +76,7 @@ class ArchivesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def archive_params
-      params.require(:archive).permit(:name, :typ, :creationdate, :location, :tamaño, :string, :categories)
+      params.require(:archive).permit(:name, :typ, :creationdate, :location, :tamaño, :string, :category_id)
+      #params.require(:archive).permit(:name, :typ, :creationdate, :location, :tamaño, :string, :category)
     end
 end
